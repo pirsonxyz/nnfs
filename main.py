@@ -5,7 +5,6 @@ from nn import Layer_Dense
 
 nnfs.init()
 
-
 x, y = spiral_data(samples=100, classes=3)
 dense1 = Layer_Dense(2, 3)
 dense1.forward(x)
