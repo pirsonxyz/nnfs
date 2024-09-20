@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import nnfs
 import matplotlib.pyplot as plt
 from nnfs.datasets import spiral_data
