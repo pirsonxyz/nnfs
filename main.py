@@ -7,9 +7,9 @@ nnfs.init()
 
 
 x, y = spiral_data(samples=100, classes=3)
-nn = Layer_Dense(2, 3)
-nn.forward(x)
-print(nn.output[:5])
+dense1 = Layer_Dense(2, 3)
+dense1.forward(x)
+print(dense1.output[:5])
 '''
 X, y = spiral_data(samples=100, classes=3)
 plt.scatter(X[:, 0], X[:, 1], c=y, cmap='brg')
