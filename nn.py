@@ -4,8 +4,7 @@ import numpy as np
 from numpy._typing import NDArray
 
 class Loss:
-    def forward(self, y_pred, y_true) -> NDArray[Any]:
-        pass
+    def forward(self, y_pred, y_true) -> NDArray[Any]: ...
     def calculate(self, output: np.ndarray, y: np.ndarray) -> np.floating[Any]:
         sample_losses = self.forward(output, y)
         data_loss = np.mean(sample_losses)
