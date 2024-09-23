@@ -1,8 +1,5 @@
 #!/usr/bin/env python
-import numpy as np
-import math
 import nnfs
-import matplotlib.pyplot as plt
 from nnfs.datasets import spiral_data
 from nn import Layer_Dense, Activation_ReLu, Activation_Softmax, Loss_CategoricalCrossentropy, acc
 
