@@ -1,6 +1,5 @@
 from typing import Any
 import numpy as np
-import math
 
 from numpy._typing import NDArray
 
