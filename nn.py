@@ -56,3 +56,36 @@ def acc(softmax_output: Activation_Softmax, y: np.ndarray) -> float:
     if len(y.shape) == 2:
         y = np.argmax(y, axis=1)
     return np.mean(preds==y)
+def train(dense1: Layer_Dense, dense2: Layer_Dense, loss_function: Loss, lowest_loss: int, its: int, dataset:tuple[NDArray[np.float64], NDArray[Any]], activation1: Activation_ReLu, activation2: Activation_Softmax):
+    X,y = dataset
+    best_dense1_weights = dense1.weights.copy()
+    best_dense1_biases = dense1.biases.copy()
+    best_dense2_weights = dense2.weights.copy()
+    best_dense2_biases = dense2.biases.copy()
+    for iteration in range(its):
+        dense1.weights += 0.05 * np.random.randn(2,3)
+        dense1.biases += 0.05 * np.random.randn(1,3)
+        dense2.weights += 0.05 * np.random.randn(3,3)
+        dense2.biases += 0.05 * np.random.randn(1,3)
+
+        dense1.forward(X)
+        activation1.forward(dense1.output)
+        dense2.forward(activation1.output)
+        activation2.forward(dense2.output)
+        loss = loss_function.calculate(activation2.output, y)
+        preds = np.argmax(activation2.output, axis=1)
+        accuracy = np.mean(preds==y)
+
+        if loss < lowest_loss:
+            print(f'New sets of weights found, iteration: {iteration} loss: {loss}, acc: {accuracy}')
+            best_dense1_weights = dense1.weights.copy()
+            best_dense1_biases = dense1.biases.copy()
+            best_dense2_weights = dense2.weights.copy()
+            best_dense2_biases = dense2.biases.copy()
+            lowest_loss = loss
+        else:
+            dense1.weights = best_dense1_weights.copy()
+            dense1.biases = best_dense1_biases.copy()
+            dense2.weights = best_dense2_weights.copy()
+            dense2.biases = best_dense2_biases.copy()
+    
