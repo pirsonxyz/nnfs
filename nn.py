@@ -20,6 +20,8 @@ class Loss_CategoricalCrossentropy(Loss):
             correct_confidences = np.sum(y_pred_clipped * y_true,
                                          axis=1
             )
+        else:
+            correct_confidences = 0
         negative_loss_likelihoods = -np.log(correct_confidences)
         return negative_loss_likelihoods
 
