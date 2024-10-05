@@ -77,7 +77,7 @@ def train(dense1: Layer_Dense, dense2: Layer_Dense, loss_function: Loss, lowest_
         accuracy = np.mean(preds==y)
 
         if loss < lowest_loss:
-            print(f'New sets of weights found, iteration: {iteration} loss: {loss}, acc: {accuracy}')
+            print(f'New sets of weights found, iteration(epoch): {iteration} loss: {loss}, acc: {accuracy}')
             best_dense1_weights = dense1.weights.copy()
             best_dense1_biases = dense1.biases.copy()
             best_dense2_weights = dense2.weights.copy()
@@ -88,4 +88,4 @@ def train(dense1: Layer_Dense, dense2: Layer_Dense, loss_function: Loss, lowest_
             dense1.biases = best_dense1_biases.copy()
             dense2.weights = best_dense2_weights.copy()
             dense2.biases = best_dense2_biases.copy()
-    
+    print('Finished training!')

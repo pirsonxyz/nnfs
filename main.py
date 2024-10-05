@@ -13,6 +13,3 @@ lowest_loss = 9999999
 loss_fn = Loss_CategoricalCrossentropy()
 
 train(dense1, dense2, loss_fn, lowest_loss, 100000, dataset, activation_1, activation_2)
-
-
-
