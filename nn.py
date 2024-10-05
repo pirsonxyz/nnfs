@@ -1,6 +1,6 @@
 from typing import Any
 import numpy as np
-
+import time
 from numpy._typing import NDArray
 
 class Loss:
@@ -57,6 +57,7 @@ def acc(softmax_output: Activation_Softmax, y: np.ndarray) -> float:
         y = np.argmax(y, axis=1)
     return np.mean(preds==y)
 def train(dense1: Layer_Dense, dense2: Layer_Dense, loss_function: Loss, lowest_loss: int, its: int, dataset:tuple[NDArray[np.float64], NDArray[Any]], activation1: Activation_ReLu, activation2: Activation_Softmax):
+    start = time.time()
     X,y = dataset
     best_dense1_weights = dense1.weights.copy()
     best_dense1_biases = dense1.biases.copy()
@@ -88,4 +89,5 @@ def train(dense1: Layer_Dense, dense2: Layer_Dense, loss_function: Loss, lowest_
             dense1.biases = best_dense1_biases.copy()
             dense2.weights = best_dense2_weights.copy()
             dense2.biases = best_dense2_biases.copy()
-    print('Finished training!')
+    end = time.time()
+    print(f'Finished training in {round(end - start, 1)} seconds!')
