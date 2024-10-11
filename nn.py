@@ -90,4 +90,4 @@ def train(dense1: Layer_Dense, dense2: Layer_Dense, loss_function: Loss, lowest_
             dense2.weights = best_dense2_weights.copy()
             dense2.biases = best_dense2_biases.copy()
     end = time.time()
-    print(f'Finished training in {round(end - start, 1)} seconds!')
+    print(f'Finished training in {round(end - start, 3)} seconds!')
