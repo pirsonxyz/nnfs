@@ -1,7 +1,14 @@
 #!/usr/bin/env python
 import nnfs
 from nnfs.datasets import vertical_data
-from nn import Layer_Dense, Activation_ReLu, Activation_Softmax, Loss_CategoricalCrossentropy, train
+from nn import (
+    Layer_Dense,
+    Activation_ReLu,
+    Activation_Softmax,
+    Loss_CategoricalCrossentropy,
+    train,
+)
+
 nnfs.init()
 
 dataset = vertical_data(samples=100, classes=3)

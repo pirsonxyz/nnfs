@@ -1,4 +1,4 @@
-'''
+"""
 X, y = spiral_data(samples=100, classes=3)
 plt.scatter(X[:, 0], X[:, 1], c=y, cmap='brg')
 plt.show()
@@ -16,4 +16,4 @@ weights2 = [[0.1, -0.14, 0.5],
 biases2 = [-1, 2 , -0.5]
 layer2_outputs = np.dot(layer1_outputs, np.array(weights2).T) + biases2
 print(layer2_outputs)
-'''
+"""
